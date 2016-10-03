@@ -9,12 +9,38 @@
     
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+     <script type="text/javascript">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+      window.open = cordova.InAppBrowser.open;
+    }
+    </script>
+
+    <!--    Initialize Firebase       -->
+
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyApT3hjyEsCBjPfyZIaMXgy6ruRnTw0iuI",
+        authDomain: "choose-me.firebaseapp.com",
+        databaseURL: "https://choose-me.firebaseio.com",
+        storageBucket: "choose-me.appspot.com",
+        messagingSenderId: "352423171169"
+      };
+      firebase.initializeApp(config);
+    </script>
+
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
+
+    
+    <!-- Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCR6-4JXC_q8GFw7uQ4xYCrb2fFjozEHBg&libraries=places"></script>
 
     
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
