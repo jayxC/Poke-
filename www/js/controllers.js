@@ -76,14 +76,15 @@ function ($scope, $stateParams, $compile, pokeFactory, pokes, $ionicPopup) {
 	    	infoWindow.setContent(description);
 		    infoWindow.open(map, marker);
 	    })
-  	}
+  	} // end addMarker function
+
   	//function to set up the poke and save it on the database for the poked user
 	$scope.poke = function(key){
 		$scope.recipient=userList[key];
 		pokeFactory.setPoker(user);
 		pokeFactory.setPokee(userList[key]);
 		pokeFactory.addPoke();
-	}
+	} // end poke function
 
 }])
    
