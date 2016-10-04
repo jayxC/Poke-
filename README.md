@@ -1,4 +1,4 @@
-# Choose-Me
+# Poke!
 
 Login to facebook to poke people!! 
 
