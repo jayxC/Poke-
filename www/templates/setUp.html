@@ -1,0 +1,17 @@
+<ion-view>
+  <ion-content>
+
+  	<div id="profileSignup">
+	    <div class="sign-up-padding">
+	      <h2 class="colored">Where are you? </h2>
+	    </div>
+	    <div class="signup-form">
+	      <label class="item-input">
+	        <input type="text" ng-model="user.address" id="address" placeholder="Location" ng-focus="disableTap()">
+	      </label>
+	    </div>
+	    <button class="button" ng-model="user" ng-click=submit() type="submit">Go to Maps</button>
+    </div>
+
+  </ion-content>
+</ion-view>

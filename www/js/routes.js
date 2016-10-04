@@ -22,6 +22,20 @@ angular.module('app.routes', [])
 
   .state('tabsController.mapTabPage', {
     url: '/page3',
+    resolve: {
+      //created a promise here so that pokes is readily available at map startup 
+      pokes: function(pokeFactory){
+        return new Promise(function(resolve, reject){
+          var user = JSON.parse(window.localStorage.getItem('user'));
+          return firebase.database().ref('Users/' + user.userID + '/pokes').once('value').then(function(snapshot){
+            window.localStorage.setItem('_pokes', JSON.stringify(snapshot.val()));
+            resolve(snapshot.val());
+
+            return snapshot.val();
+          })
+        })
+      }
+    },
     views: {
       'tab2': {
         templateUrl: 'templates/mapTabPage.html',
@@ -46,7 +60,18 @@ angular.module('app.routes', [])
     abstract:true
   })
 
-$urlRouterProvider.otherwise('/page1/page2')
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'loginCtrl'
+  })
+
+  .state('setup', {
+    url: '/setup',
+    templateUrl: 'templates/setup.html',
+    controller: 'setupCtrl'
+  })
+$urlRouterProvider.otherwise('/login')
 
   
 
